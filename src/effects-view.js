@@ -16,7 +16,7 @@ THREE.EffectsView = {
 
       vignette: 0,
       drag: 0.0033,
-      frequencyScalar: 10,
+      frequencyScalar: 1,
 
       initialized: false,
 
@@ -105,7 +105,7 @@ THREE.EffectsView = {
         three.drag = 0.033;
         three.quad.material.uniforms.foreground.value.set(0.33, 1, 1);
         three.quad.material.uniforms.vignette.value = 8;
-        three.quad.material.uniforms.frequency.value = 75;
+        three.quad.material.uniforms.frequency.value = 100;
 
         return three;
 
@@ -151,7 +151,7 @@ THREE.EffectsView = {
           .to({ frequencyScalar: 100 }, 200000)
           .parent(timeline)
           .easing(TWEEN.Easing.Circular.Out)
-          .start(0);
+          .start(31 * 1000);
 
       }
 

@@ -313,13 +313,16 @@
         'vec2 centroid = vec2(dimensions) / 2.0;',
         'vec2 pos = vUv * dimensions;',
 
+        'vec2 st = vUv;',
+        'st.y *= dimensions.y / dimensions.x;',
+
         // Color
         'vec4 f = vec4(foreground, 1.0);',
         'vec4 texel = texture2D(texture, vUv);',
 
-        'float n = 0.1 * snoise(vUv * 200.0);',
-        'n += 0.05 * snoise(vUv * 200.0);',
-        'n += 0.025 * snoise(vUv * 800.0);',
+        'float n = 0.1 * snoise(st * 200.0);',
+        'n += 0.05 * snoise(st * 200.0);',
+        'n += 0.025 * snoise(st * 800.0);',
         'vec3 white = vec3(n * 0.2 + 0.97);',
         'vec3 black = vec3(n * 1.0);',
 
@@ -357,22 +360,22 @@
         'cmyk.xyz -= cmyk.w;',
 
         // C component: 15 degrees screen angle
-        'vec2 Cst = frequency * frequencyScale * mat2(0.966, - 0.259, 0.259, 0.966) * vUv;',
+        'vec2 Cst = frequency * frequencyScale * mat2(0.966, - 0.259, 0.259, 0.966) * st;',
         'vec2 Cuv = 2.0 * fract(Cst) - 1.0;',
         'float c = aastep(0.0, sqrt(cmyk.x) - length(Cuv) + n);',
 
         // M component: -15 degrees screen angle
-        'vec2 Mst = frequency * frequencyScale * mat2(0.966, 0.259, - 0.259, 0.966) * vUv;',
+        'vec2 Mst = frequency * frequencyScale * mat2(0.966, 0.259, - 0.259, 0.966) * st;',
         'vec2 Muv = 2.0 * fract(Mst) - 1.0;',
         'float m = aastep(0.0, sqrt(cmyk.y) - length(Muv) + n);',
 
         // Y component: 0 degrees screen angle
-        'vec2 Yst = frequency * frequencyScale * vUv;',
+        'vec2 Yst = frequency * frequencyScale * st;',
         'vec2 Yuv = 2.0 * fract(Yst) - 1.0;',
         'float y = aastep(0.0, sqrt(cmyk.z) - length(Yuv) + n);',
 
         // K component: 45 degrees screen angle
-        'vec2 Kst = frequency * frequencyScale * mat2(0.707, -0.707, 0.707, 0.707) * vUv;',
+        'vec2 Kst = frequency * frequencyScale * mat2(0.707, -0.707, 0.707, 0.707) * st;',
         'vec2 Kuv = 2.0 * fract(Kst) - 1.0;',
         'float k = aastep(0.0, sqrt(cmyk.w) - length(Kuv) + n);',
 

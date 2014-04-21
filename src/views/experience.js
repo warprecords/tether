@@ -16,7 +16,7 @@ $(function() {
     fullscreen: true,
     // autostart: true,
     overdraw: true,
-    ratio: 1
+    ratio: 1.0
   });
 
   var background = two.makeRectangle(two.width / 2, two.height / 2, two.width, two.height);
