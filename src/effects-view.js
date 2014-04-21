@@ -114,7 +114,7 @@ THREE.EffectsView = {
       addNoiseTweens: function() {
 
         var t1 = new TWEEN.Tween(three.quad.material.uniforms.noise)
-          .to({ value: 1.0 }, 16 * 1000)
+          .to({ value: 1.0 }, 15.66 * 1000)
           .parent(timeline)
           .easing(TWEEN.Easing.Circular.Out)
           .onComplete(function() {
