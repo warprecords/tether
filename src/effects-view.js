@@ -1,3 +1,6 @@
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
 
 THREE.EffectsView = {
 

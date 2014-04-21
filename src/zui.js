@@ -1,3 +1,7 @@
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
+
 var Surface = function(object) {
 
   this.object = object;

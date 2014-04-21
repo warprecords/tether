@@ -56032,6 +56032,10 @@ TWEEN.Interpolation = {
   return Backbone;
 
 }));
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
+
 (function() {
 
   var root = this;
@@ -56185,6 +56189,10 @@ TWEEN.Interpolation = {
   }
 
 })();
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
+
 (function() {
 
   var superclass = animations.Animation;
@@ -56332,6 +56340,10 @@ TWEEN.Interpolation = {
   animations.register('Bass', Bass);
 
 })();
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
+
 (function() {
 
   var superclass = animations.Animation;
@@ -56491,6 +56503,10 @@ TWEEN.Interpolation = {
   animations.register('Hats', Hats);
 
 })();
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
+
 (function() {
 
   var superclass = animations.Animation;
@@ -56653,6 +56669,10 @@ TWEEN.Interpolation = {
   animations.register('HighBass', HighBass);
 
 })();
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
+
 (function() {
 
   var superclass = animations.Animation;
@@ -56820,6 +56840,10 @@ TWEEN.Interpolation = {
   }
 
 })();
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
+
 (function() {
 
   var superclass = animations.Animation;
@@ -56983,6 +57007,10 @@ TWEEN.Interpolation = {
   animations.register('Whip', Whip);
 
 })();
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
+
 (function() {
 
   var root = this;
@@ -57207,6 +57235,10 @@ TWEEN.Interpolation = {
   });
 
 })();
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
+
 (function() {
 
   var root = this;
@@ -57478,6 +57510,9 @@ TWEEN.Interpolation = {
   };
 
 })();
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
 
 THREE.EffectsView = {
 
@@ -57629,6 +57664,10 @@ THREE.EffectsView = {
   }
 
 };
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
+
 (function() {
 
   var root = this;
@@ -57707,6 +57746,10 @@ THREE.EffectsView = {
   });
 
 })();
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
+
 (function() {
 
   var root = this;
@@ -57739,6 +57782,10 @@ THREE.EffectsView = {
   });
 
 })();
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
+
 var Surface = function(object) {
 
   this.object = object;
@@ -57976,6 +58023,10 @@ _.extend(ZUI.prototype, {
   }
 
 });
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
+
 (function() {
 
   var root = this;
@@ -58239,6 +58290,10 @@ _.extend(ZUI.prototype, {
   });
 
 })();
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
+
 (function() {
 
   var root = this;
@@ -58421,6 +58476,10 @@ _.extend(ZUI.prototype, {
   }
 
 })();
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
+
 (function() {
 
   var root = this;
@@ -58549,6 +58608,10 @@ _.extend(ZUI.prototype, {
   });
 
 })();
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
+
 (function() {
 
   var root = this;
@@ -58687,6 +58750,10 @@ _.extend(ZUI.prototype, {
   }
 
 })();
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
+
 $(function() {
 
   var root = window;
@@ -58900,6 +58967,10 @@ $(function() {
   });
 
 });
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
+
 $(function() {
 
   var root = window;
@@ -59450,6 +59521,10 @@ $(function() {
   };
 
 });
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
+
 $(function() {
 
   var root = window;
@@ -59571,6 +59646,10 @@ $(function() {
   };
 
 });
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
+
 (function() {
 
   var root = this;
@@ -59598,6 +59677,10 @@ $(function() {
   };
 
 })();
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
+
 (function() {
 
   var root = this;
@@ -59625,6 +59708,10 @@ $(function() {
   };
 
 })();
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
+
 (function() {
 
   var root = this;
@@ -59652,6 +59739,10 @@ $(function() {
   };
 
 })();
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
+
 if (window.location.href.match('no-webgl')) {
   has.webgl = false;
 }

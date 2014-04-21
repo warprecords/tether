@@ -1,3 +1,7 @@
+/**
+ * @jonobr1 / http://jonobr1.com/
+ */
+
 if (window.location.href.match('no-webgl')) {
   has.webgl = false;
 }
