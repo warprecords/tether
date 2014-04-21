@@ -64,12 +64,9 @@ body {
     -webkit-overflow-scrolling: touch;
   }
 
-  // .container {
-  //   position: static;
-  //   width: 100%;
-  //   height: 100%;
-  //   overflow: auto;
-  // }
+  ul {
+    list-style: none;
+  }
 
   #controls {
 
@@ -90,14 +87,17 @@ body {
       
       li {
         @include inline-block;
-        cursor: pointer;
-        &:hover {
-          color: $red;
+        &:not(#loading) {
+          cursor: pointer;
+          &:hover {
+            color: $red;
+          }
         }
       }
       li + li {
         margin-left: $line-height;
       }
+
     }
 
   }
@@ -140,6 +140,16 @@ body {
   }
 
   #share {
+    // display: block;
+    @include transition(all 1s $ease-out-circ);
+    opacity: 0.0;
+    @include transform(scale(4, 4));
+    @include transform-origin(center center);
+    @include transform-style(preserve-3d);
+    &.zoom-out {
+      @include transform(scale(1, 1));
+      opacity: 1.0;
+    }
     img {
       @include user-select(none);
     }

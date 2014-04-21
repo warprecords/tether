@@ -69,7 +69,10 @@ $(function() {
       Share.initialize();
       Share.play();
       Share.bind();
-      Share.$elem.fadeIn(callback);
+      Share.$elem.css('display', 'block');
+      _.defer(function() {
+        Share.$elem.addClass('zoom-out');
+      });
       return Share;
     },
 
@@ -77,6 +80,7 @@ $(function() {
       Share.$elem.fadeOut(function() {
         Share.pause();
         Share.unbind();
+        Share.$elem.removeClass('zoom-out');
       });
       return Share;
     },

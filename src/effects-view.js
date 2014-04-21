@@ -16,6 +16,7 @@ THREE.EffectsView = {
 
       vignette: 0,
       drag: 0.0033,
+      frequencyScalar: 10,
 
       initialized: false,
 
@@ -59,13 +60,15 @@ THREE.EffectsView = {
 
       updateFrequency: function(frequencies, length) {
 
-        // var low = frequencies[Math.floor(length * 0.25)] / 255;
-        // var mid = frequencies[Math.floor(length * 0.50)] / 255;
+        var low = frequencies[Math.floor(length * 0.25)] / 255;
+        var mid = frequencies[Math.floor(length * 0.50)] / 255;
         var high = Math.sqrt(frequencies[Math.floor(length * 0.75)] / 255);
 
         var max = three.quad.material.uniforms.noiseScale.max;
         var min = three.quad.material.uniforms.noiseScale.min;
         three.quad.material.uniforms.noiseScale.value = high * (max - min) + min;
+
+        three.quad.material.uniforms.frequencyScale.value = 1 - low * three.frequencyScalar / 100;
 
         return three;
 
@@ -84,6 +87,10 @@ THREE.EffectsView = {
           three.quad.material.uniforms.vignette.value += (0 - three.quad.material.uniforms.vignette.value) * three.drag * currentSpeed;
         }
 
+        if (three.quad.material.uniforms.frequency.value < 2000) {
+          three.quad.material.uniforms.frequency.value += (2000 - three.quad.material.uniforms.frequency.value) * three.drag * currentSpeed / three.frequencyScalar;
+        }
+
         three.texture.needsUpdate = true;
         three.renderer.render(three.scene, three.camera);
 
@@ -96,8 +103,9 @@ THREE.EffectsView = {
       emergency: function() {
 
         three.drag = 0.033;
-        three.quad.material.uniforms.foreground.value.set(0.1, 1, 0.75);
+        three.quad.material.uniforms.foreground.value.set(0.33, 1, 1);
         three.quad.material.uniforms.vignette.value = 8;
+        three.quad.material.uniforms.frequency.value = 75;
 
         return three;
 
@@ -106,7 +114,7 @@ THREE.EffectsView = {
       addNoiseTweens: function() {
 
         var t1 = new TWEEN.Tween(three.quad.material.uniforms.noise)
-          .to({ value: 1.0 }, 15 * 1000)
+          .to({ value: 1.0 }, 16 * 1000)
           .parent(timeline)
           .easing(TWEEN.Easing.Circular.Out)
           .onComplete(function() {
@@ -138,6 +146,12 @@ THREE.EffectsView = {
           .to({ value: 0 }, 10000)
           .parent(timeline)
           .start((4 * 60 + 2) * 1000);
+
+        var frequencyTween = new TWEEN.Tween(three)
+          .to({ frequencyScalar: 100 }, 200000)
+          .parent(timeline)
+          .easing(TWEEN.Easing.Circular.Out)
+          .start(0);
 
       }
 
