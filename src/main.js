@@ -96,8 +96,7 @@ $(function() {
 
     $('#replay-button').click(function(e) {
       e.preventDefault();
-      window.location.hash = '';
-      window.location.reload();
+      window.location = window.location.href.replace(window.location.hash, '');
     });
 
     $('.close').each(function(i, elem) {
