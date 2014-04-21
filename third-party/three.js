@@ -15444,7 +15444,7 @@ THREE.FogExp2.prototype.clone = function () {
 
 THREE.CanvasRenderer = function ( parameters ) {
 
-	console.log( 'THREE.CanvasRenderer', THREE.REVISION );
+	// console.log( 'THREE.CanvasRenderer', THREE.REVISION );
 
 	var smoothstep = THREE.Math.smoothstep;
 
@@ -19739,7 +19739,7 @@ THREE.ShaderLib = {
 
 THREE.WebGLRenderer = function ( parameters ) {
 
-	console.log( 'THREE.WebGLRenderer', THREE.REVISION );
+	// console.log( 'THREE.WebGLRenderer', THREE.REVISION );
 
 	parameters = parameters || {};
 

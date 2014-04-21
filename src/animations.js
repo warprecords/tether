@@ -38,7 +38,6 @@
 
       animations[name] = obj;
       animations.types.push(name);
-      console.log(name);
       return animations;
 
     },
