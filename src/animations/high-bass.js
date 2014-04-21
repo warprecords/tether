@@ -94,7 +94,7 @@
       this.shape.visible = false;
 
       this.radius = this.parent.height / 8;
-      var variation = this.radius * animations.variation / 2;
+      var variation = this.radius * animations.variation / 10;
 
       if (window.grid) {
         grid.active[superclass.Mode.activeAnimation]().get(TEMP);
