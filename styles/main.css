@@ -76,6 +76,10 @@ body {
           color: #ff0032; }
     #content #controls ul li + li {
       margin-left: 20px; }
+#content #error {
+  background: #222; }
+  #content #error p {
+    margin-top: 20px; }
 #content .modal {
   background: #222;
   overflow: auto; }
