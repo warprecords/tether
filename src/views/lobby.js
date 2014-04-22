@@ -16,8 +16,10 @@ $(function() {
   var threshold = 10, hits = 0, bump, bumpOut, hiding = false;
 
   var trigger = function(x, y) {
-    hits++;
-    beginningDestination = hits / threshold;
+    if (Lobby.awaiting) {
+      hits++;
+      beginningDestination = hits / threshold;
+    }
     var instrument = instruments[Math.floor(Math.random() * instruments.length)];
     instrument.start(undefined, x, y);
     if (hits >= threshold) {
@@ -62,6 +64,8 @@ $(function() {
     init: false,
 
     end: _.identity,
+
+    awaiting: false,
 
     _ready: false,
 

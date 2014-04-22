@@ -69,7 +69,7 @@ $(function() {
       // Loading experience
       _gaq.push(['_trackEvent', 'Router', 'Start']);
       showView(Lobby.id);
-      ready(Lobby.start);
+      // ready(Lobby.start);
     });
 
   var preload = function() {
@@ -126,6 +126,7 @@ $(function() {
     var $message = $('#controls .message');
 
     var fullyLoaded = _.after(views.length + modals.length, function() {
+      Lobby.awaiting = true;
       preload.loaded = true;
       $message.html((has.mobile ? 'Tap' : 'Click') + ' to play.');
       _.each(preload.callbacks, function(f) {
@@ -133,10 +134,6 @@ $(function() {
       });
       preload.callbacks.length = 0;
     });
-
-    // var loadShare = _.after(4, function() {
-    //   Share.startLoading();
-    // });
 
     var loaded = function() {
       // loadShare();
@@ -151,7 +148,10 @@ $(function() {
     };
     updateLoader.index = 0;
 
-    Lobby.ready(loaded);
+    Lobby.ready(function() {
+      Lobby.start();
+      loaded();
+    });
     Experience.ready(loaded);
     Share.ready(loaded);
 
