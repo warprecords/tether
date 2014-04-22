@@ -48568,8 +48568,10 @@ $(function() {
   var threshold = 10, hits = 0, bump, bumpOut, hiding = false;
 
   var trigger = function(x, y) {
-    hits++;
-    beginningDestination = hits / threshold;
+    if (Lobby.awaiting) {
+      hits++;
+      beginningDestination = hits / threshold;
+    }
     var instrument = instruments[Math.floor(Math.random() * instruments.length)];
     instrument.start(undefined, x, y);
     if (hits >= threshold) {
@@ -48614,6 +48616,8 @@ $(function() {
     init: false,
 
     end: _.identity,
+
+    awaiting: false,
 
     _ready: false,
 
@@ -49614,7 +49618,7 @@ $(function() {
       // Loading experience
       _gaq.push(['_trackEvent', 'Router', 'Start']);
       showView(Lobby.id);
-      ready(Lobby.start);
+      // ready(Lobby.start);
     });
 
   var preload = function() {
@@ -49671,6 +49675,7 @@ $(function() {
     var $message = $('#controls .message');
 
     var fullyLoaded = _.after(views.length + modals.length, function() {
+      Lobby.awaiting = true;
       preload.loaded = true;
       $message.html((has.mobile ? 'Tap' : 'Click') + ' to play.');
       _.each(preload.callbacks, function(f) {
@@ -49678,10 +49683,6 @@ $(function() {
       });
       preload.callbacks.length = 0;
     });
-
-    // var loadShare = _.after(4, function() {
-    //   Share.startLoading();
-    // });
 
     var loaded = function() {
       // loadShare();
@@ -49696,7 +49697,10 @@ $(function() {
     };
     updateLoader.index = 0;
 
-    Lobby.ready(loaded);
+    Lobby.ready(function() {
+      Lobby.start();
+      loaded();
+    });
     Experience.ready(loaded);
     Share.ready(loaded);
 
