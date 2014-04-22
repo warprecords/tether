@@ -5,7 +5,6 @@ var compressor = require('node-minify');
 
 var files = [
   path.resolve(__dirname, '../third-party/has.js'),
-  path.resolve(__dirname, '../third-party/jquery.js'),
   path.resolve(__dirname, '../third-party/jquery-ajax-blob-arraybuffer.js'),
   path.resolve(__dirname, '../third-party/three.js'),
   path.resolve(__dirname, '../third-party/two.js'),
