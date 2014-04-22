@@ -112,11 +112,13 @@ body {
     background: url(../images/album-cover.jpg) center center no-repeat;
     width: 400px;
     height: 400px;
+    background-size: 100%;
     box-shadow: 0 0 20px black; }
   #content .modal #poster-thumbnail {
     background: url(../images/poster.jpg) center center no-repeat;
     width: 400px;
     height: 626px;
+    background-size: 100%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); }
     #content .modal #poster-thumbnail:hover {
       color: #ff0032; }
@@ -185,6 +187,13 @@ body {
 #content #share .cta a:last-child {
   margin-right: 30px; }
 
+@media (max-width: 600px) {
+  #content .modal #album-cover {
+    width: 250px;
+    height: 250px; }
+  #content .modal #poster-thumbnail {
+    width: 250px;
+    height: 391.25px; } }
 ::selection {
   background: #ff0032;
   /* Safari */ }

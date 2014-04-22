@@ -149,12 +149,14 @@ body {
       background: url(../images/album-cover.jpg) center center no-repeat;
       width: 400px;
       height: 400px;
+      background-size: 100%;
       box-shadow: 0 0 20px rgba(0, 0, 0, 1);
     }
     #poster-thumbnail {
       background: url(../images/poster.jpg) center center no-repeat;
       width: 400px;
       height: 626px;
+      background-size: 100%;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
       &:hover {
         color: $red;
@@ -230,6 +232,22 @@ body {
     margin-right: 30px;
   }
 
+}
+
+@media (max-width: 600px) {
+  #content {
+    .modal {
+      $swidth: 250px;
+      #album-cover {
+        width: $swidth;
+        height: $swidth;
+      }
+      #poster-thumbnail {
+        width: $swidth;
+        height: 626 * ($swidth / 400);
+      }
+    }
+  }
 }
 
 ::selection {
