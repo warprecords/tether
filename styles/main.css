@@ -69,11 +69,14 @@ body {
       vertical-align: baseline;
       zoom: 1;
       *display: inline;
-      *vertical-align: auto; }
-      #content #controls ul li:not(#loading) {
-        cursor: pointer; }
-        #content #controls ul li:not(#loading):hover {
-          color: #ff0032; }
+      *vertical-align: auto;
+      cursor: pointer; }
+      #content #controls ul li:hover {
+        color: #ff0032; }
+      #content #controls ul li.bracket, #content #controls ul li#loading {
+        cursor: default; }
+        #content #controls ul li.bracket:hover, #content #controls ul li#loading:hover {
+          color: white; }
     #content #controls ul li + li {
       margin-left: 20px; }
 #content #error {
@@ -105,6 +108,18 @@ body {
     margin-top: 20px; }
   #content .modal p:last-child {
     margin-bottom: 40px; }
+  #content .modal #album-cover {
+    background: url(../images/album-cover.jpg) center center no-repeat;
+    width: 400px;
+    height: 400px;
+    box-shadow: 0 0 20px black; }
+  #content .modal #poster-thumbnail {
+    background: url(../images/poster.jpg) center center no-repeat;
+    width: 400px;
+    height: 626px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); }
+    #content .modal #poster-thumbnail:hover {
+      color: #ff0032; }
 #content #signum {
   display: none; }
 #content #share {

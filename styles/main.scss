@@ -87,10 +87,15 @@ body {
       
       li {
         @include inline-block;
-        &:not(#loading) {
-          cursor: pointer;
+        cursor: pointer;
+        &:hover {
+          color: $red;
+        }
+        &.bracket,
+        &#loading {
+          cursor: default;
           &:hover {
-            color: $red;
+            color: $white;
           }
         }
       }
@@ -139,6 +144,21 @@ body {
     }
     p:last-child {
       margin-bottom: $line-height * 2;
+    }
+    #album-cover {
+      background: url(../images/album-cover.jpg) center center no-repeat;
+      width: 400px;
+      height: 400px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+    }
+    #poster-thumbnail {
+      background: url(../images/poster.jpg) center center no-repeat;
+      width: 400px;
+      height: 626px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+      &:hover {
+        color: $red;
+      }
     }
   }
 
