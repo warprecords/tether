@@ -2,7 +2,7 @@
 __Tether__ is an interactive web application created by @jonobr1 in collaboration with [Plaid](http://plaid.co.uk). The track is accompanied by a series of graphic shapes that gradually evolve as the music progresses; you can manipulate what you hear by clicking and dragging your mouse — or, if watching on your smartphone or tablet, touching and dragging on the screen. _This repository holds all the assets and source code for the site [http://tether.plaid.co.uk](http://tether.plaid.co.uk)_.
 
 ## Setup
-Because __Tether__ is a simple website, it's relatively easy to boot up and tinker with on your own machine. Since  the application relies on a number of asynchronous requests, you'll need to run a local server. We recommend Python's `SimpleHTTPServer`. If you have a Mac this is already installed. In addition to downloading the project.
+Because __Tether__ is a simple website, it's relatively easy to boot up and tinker with on your own machine. Since  the application relies on a number of asynchronous requests, you'll need to run a local server. We recommend Python's `SimpleHTTPServer`. If you have a Mac this is already installed. The steps are as follows:
 
 ### Local Server
 1. Make sure [Python](https://wiki.python.org/moin/BeginnersGuide/Download) is installed.
@@ -14,7 +14,7 @@ Because __Tether__ is a simple website, it's relatively easy to boot up and tink
 The server will default to port `8000`. Open up a web browser and go to [`http://localhost:8000`](http://localhost:8000). You should see the Tether logo load and you have successfully setup your local server!
 
 ### Styling
-The styling and layout of __Tether__ like all websites is built on css which you can find in the `styles` folder of the project. However, the project leverages two libraries in order to speed up designing: [SCSS](http://sass-lang.com/) and [Bourbon](http://bourbon.io/). Following these steps will allow you to edit the `styles/main.scss` file and automatically compile the `styles/main.css`. The `main.css` is the file actually used on the site, but `main.scss` affords some nice features like variables when writing css and mixins for css3 polyfill.
+The styling and layout of __Tether__ like all websites is built on css which you can find in the `styles` folder of the project. However, the project leverages two libraries in order to speed up styling: [SCSS](http://sass-lang.com/) and [Bourbon](http://bourbon.io/). Following these steps will allow you to edit the `styles/main.scss` file and automatically compile the `styles/main.css`. The `main.css` is the file actually used on the site, but `main.scss` affords some nice features like variables when writing css and mixins for css3 polyfill.
 
 1. Make sure [Ruby](https://www.ruby-lang.org/en/installation/) is installed.
 2. Open a [command line interface](http://en.wikipedia.org/wiki/Command-line_interface).
@@ -24,12 +24,12 @@ The styling and layout of __Tether__ like all websites is built on css which you
 6. Type `bourbon install`
 7. Type `scss --watch .`
 
-The final command initializes a script that __watches__ for when `.scss` files change and updates the `.css` counterpart. Read up on both [SCSS](http://sass-lang.com/) and [Bourbon](http://bourbon.io/) to familiarize yourself with the possibilities.
+The final command initializes a script that __watches__ for when `.scss` files change and updates their `.css` counterpart. Read up on both [SCSS](http://sass-lang.com/) and [Bourbon](http://bourbon.io/) to familiarize yourself with the possibilities.
 
 ### JavaScript
-The bulk of the "content" you see on the site is made with JavaScript. Tether relies on three emerging technologies on for the browser: Canvas2d, WebGL, and the Web Audio API. There is a `src` folder in the project that represent all the different modules and logic. They rely on JavaScript files in the `third-party` folder. Together these files get compiled into a concatenated `build/tether.js` file and a minified `build/tether.min.js` file.
+The bulk of the "content" you see on the site is made with JavaScript. Tether relies on three emerging technologies for the browser: Canvas2d, WebGL, and the Web Audio API. There is a `src` folder in the project that represent all the different modules and logic. They rely on extrinsic JavaScript files in the `third-party` folder. Together these files get compiled into a concatenated `build/tether.js` file and a minified `build/tether.min.js` file.
 
-_N.B: This project was concepted and developed on an accelerated timeline so the coherence and modularity is tenuous at best._
+_N.B: This project was concepted and developed on an accelerated timeline so the coherence and modularity is tenuous at best. Please don't refer to this project for best practices._
 
 - __src__
   - __animations.js__ Singleton object that holds each prototypical animation.
@@ -61,7 +61,7 @@ _N.B: This project was concepted and developed on an accelerated timeline so the
 To recap in prose: `main.js` is executed on page load and dictates which view is visible and active. The views share a lot in common, but don't really have an underlying object or class that they inherit from. `lobby.js` and `experience.js` are where the bulk of the logic come from. `lobby.js` is responsible for the page with the Tether logo on it and `experience.js` is the "music video" portion of the project. `experience.js` leverages these other files, loading sounds adding additional interaction to the canvases, etc.. 
 
 ### Assets
-In addition to imagery, Tether relies on a compiled JSON data object `data/triggers.json` to dictate when animations should fire. These values are a blend of midi data, sound processing, and analog recording. It also relies on audio files. There are two tracks, one at 120BPM and another at 40BPM. Lastly, there are `data/audio/clips` which are multi-second fragments from the stems to be used in `lobby.js`.
+In addition to imagery, Tether relies on a compiled JSON data object `data/triggers.json` to dictate when animations should fire. These values are a blend of midi data, sound processing, and analog recording. Tether also relies on audio files. There are two tracks, one at `120BPM` and another at `40BPM`. Lastly, there are `data/audio/clips` which are multi-second fragments from the stems to be used in `lobby.js`.
 
 ## Build Process
 At the bottom of `index.html` there is a large commented out block of `script` tags. Uncomment this and comment out the `<script src="./build/tether.min.js"></script>` line in order to dev. This way you can edit individual files and refresh the page to see changes. However, if you've made changes that you'd like to minify then follow these steps:
