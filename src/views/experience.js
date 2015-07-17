@@ -153,7 +153,7 @@ $(function() {
   track.slow = new Sound('./data/audio/teth_full_slow.mp3', function() {
 
     track.slow.applyFilter(Sound.ctx.createBiquadFilter());
-    track.slow.filter.type = track.slow.filter.PEAKING;
+    track.slow.filter.type = track.slow.filter.PEAKING || 'peaking';
     // middle of the road.
     if (!track.slow.filter.frequency.maxValue) {
       track.slow.filter.frequency.maxValue = 22050;

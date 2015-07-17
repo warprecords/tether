@@ -131,7 +131,7 @@
         this.source.noteOff(params.time);
       }
 
-      this.source.disconnect(this.attached);
+      // this.source.disconnect(this.attached);
       this.playing = false;
 
       this._time = 0;
@@ -157,9 +157,9 @@
       this._currentTime = params.time;
 
       // Remove previous source
-      if (this.source) {
-        this.source.disconnect(this.attached);
-      }
+      // if (this.source) {
+      //   this.source.disconnect(this.attached);
+      // }
 
       this.source = ctx.createBufferSource();
       this.source.buffer = this.buffer;

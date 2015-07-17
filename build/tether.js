@@ -46803,7 +46803,7 @@ TWEEN.Interpolation = {
         this.source.noteOff(params.time);
       }
 
-      this.source.disconnect(this.attached);
+      // this.source.disconnect(this.attached);
       this.playing = false;
 
       this._time = 0;
@@ -46829,9 +46829,9 @@ TWEEN.Interpolation = {
       this._currentTime = params.time;
 
       // Remove previous source
-      if (this.source) {
-        this.source.disconnect(this.attached);
-      }
+      // if (this.source) {
+      //   this.source.disconnect(this.attached);
+      // }
 
       this.source = ctx.createBufferSource();
       this.source.buffer = this.buffer;
@@ -48926,7 +48926,7 @@ $(function() {
   track.slow = new Sound('./data/audio/teth_full_slow.mp3', function() {
 
     track.slow.applyFilter(Sound.ctx.createBiquadFilter());
-    track.slow.filter.type = track.slow.filter.PEAKING;
+    track.slow.filter.type = track.slow.filter.PEAKING || 'peaking';
     // middle of the road.
     if (!track.slow.filter.frequency.maxValue) {
       track.slow.filter.frequency.maxValue = 22050;
