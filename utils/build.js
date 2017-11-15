@@ -36,10 +36,10 @@ var files = [
 ];
 
 // Concatenated
-new compressor.minify({
-  type: 'no-compress',
-  fileIn: files,
-  fileOut: path.resolve(__dirname, '../build/tether.js'),
+compressor.minify({
+  compressor: 'no-compress',
+  input: files,
+  output: path.resolve(__dirname, '../build/tether.js'),
   callback: function(e) {
     if (!e) {
       console.log('concatenation complete');
@@ -50,10 +50,10 @@ new compressor.minify({
 });
 
 // Minified
-new compressor.minify({
-  type: 'uglifyjs',
-  fileIn: files,
-  fileOut: path.resolve(__dirname, '../build/tether.min.js'),
+compressor.minify({
+  compressor: 'uglifyjs',
+  input: files,
+  output: path.resolve(__dirname, '../build/tether.min.js'),
   callback: function(e){
     if (!e) {
       console.log('minified complete');

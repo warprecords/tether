@@ -48927,20 +48927,22 @@ $(function() {
 
     track.slow.applyFilter(Sound.ctx.createBiquadFilter());
     track.slow.filter.type = track.slow.filter.PEAKING || 'peaking';
-    // middle of the road.
-    if (!track.slow.filter.frequency.maxValue) {
-      track.slow.filter.frequency.maxValue = 22050;
-    }
-    if (!track.slow.filter.frequency.minValue) {
-      track.slow.filter.frequency.minValue = 10;
-    }
-    if (!track.slow.filter.gain.maxValue) {
-      track.slow.filter.gain.maxValue = 40;
-    }
-    track.slow.filter.frequency.value = track.slow.filter.frequency.maxValue / 4;
-    // track.slow.filter.gain.value = 20;
-    // track.slow.filter.Q.value = 2;
+    track.slow.meta = {
+      q: {
+        min: 1,
+        max: 0.00009999999747378752
+      },
+      frequency: {
+        min: 10,
+        max: 22050
+      },
+      gain: {
+        min: - 40,
+        max: 40
+      }
+    };
 
+    track.slow.filter.frequency.value = track.slow.meta.frequency.max / 4;
     resourcesLoaded();
 
   });
@@ -48985,15 +48987,15 @@ $(function() {
     hpct = mouse.x / two.width;
 
     // Update frequency
-    max = track.slow.filter.frequency.maxValue * 0.5;
-    min = track.slow.filter.frequency.minValue;
+    max = track.slow.meta.frequency.max * 0.5;
+    min = track.slow.meta.frequency.min;
     v = (1 - Math.sin(Math.PI * hpct)) * (max - min) + min;
 
     v = Math.max(Math.min(v, max), min);
     track.slow.filter.frequency.value = v;
 
     // Update gain
-    max = track.slow.filter.gain.maxValue * 0.66;
+    max = track.slow.meta.gain.max * 0.66;
     min = 0;
     v = velocity * (max - min) + min;
 
@@ -49325,6 +49327,7 @@ $(function() {
   };
 
 });
+
 /**
  * @jonobr1 / http://jonobr1.com/
  */
