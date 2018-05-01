@@ -161,6 +161,10 @@
       //   this.source.disconnect(this.attached);
       // }
 
+      if (ctx && /suspended/.test(ctx.state)) {
+        ctx.resume();
+      }
+
       this.source = ctx.createBufferSource();
       this.source.buffer = this.buffer;
       this.source.connect(this.attached);
